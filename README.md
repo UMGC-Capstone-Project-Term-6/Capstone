@@ -1,2 +1,2 @@
 # Capstone
-UMGC Capstone Project Group 4
+UMGC Capstone Project Group 3
