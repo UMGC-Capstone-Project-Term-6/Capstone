@@ -1,0 +1,9 @@
+{%extends "layout.html" %}
+{% block content %}
+    <h1>Memes Page</h1>
+    <img src="{{ url_for('static', filename='/img/meme_1.jpg') }}" alt="Image 1">
+    <img src="{{ url_for('static', filename='/img/meme_2.jpg') }}" alt="Image 2">
+    <img src="{{ url_for('static', filename='/img/meme_3.jpg') }}" alt="Image 3">
+    <img src="{{ url_for('static', filename='/img/meme_4.jpg') }}" alt="Image 4">
+    <img src="{{ url_for('static', filename='/img/meme_5.jpg') }}" alt="Image 5">
+{% endblock %}

@@ -1,0 +1,34 @@
+{% extends "layout.html" %}
+{% block content %}
+
+
+    {% for school in schools %}
+        <article class="media content-section">
+            <div class="media-body">
+                <div class="article-metadata">
+                    {% if school.name == "University of Maryland - Global Campus" %}
+                        <h3><a href="http://www.umgc.edu" target="_blank">{{ school.name }}</a></h3>
+                    {% elif school.name == "University of Utah" %}
+                        <h3><a href="http://www.utah.edu" target="_blank">{{ school.name }}</a></h3>
+                    {% elif school.name == "Salt Lake Community College" %}
+                        <h3><a href="http://www.slcc.edu" target="_blank">{{ school.name }}</a></h3>
+                    {% else %}
+                        <h3>{{ school.name }}</h3>
+                    {% endif %}
+                </div>
+                <div class="article-title">
+                    {% if school.name == "University of Maryland - Global Campus" %}
+                        <h3><a href="https://www.umgc.edu/current-students/degree-requirements/request-transcripts-enrollment-verification" target="_blank">{{ school.title }}</a></h3>
+                    {% elif school.name == "University of Utah" %}
+                        <h3><a href="https://registrar.utah.edu/transcripts/order-transcript.php" target="_blank">{{ school.title }}</a></h3>
+                    {% elif school.name == "Salt Lake Community College" %}
+                        <h3><a href="https://www.slcc.edu/registrar/transcripts.aspx" target="_blank">{{ school.title }}</a></h3>
+                    {% else %}
+                        <h3>{{ school.title }}</h3>
+                    {% endif %}
+                </div>
+                <p class="article-content">{{ school.Fee }}</p>
+            </div>
+        </article>
+    {% endfor %}
+{% endblock %}

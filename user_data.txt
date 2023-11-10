@@ -1,0 +1,4 @@
+kevinpineda,kevin@email.com,SnapNChezz123!!,secret
+nevinpineda,nevin@email.com,K3v1n123789!,my name
+devinpineda,devin@email.com,Kevin123456!!,No Secret
+ausername,someone@email.com,Password123456!!, 'No Secret'
