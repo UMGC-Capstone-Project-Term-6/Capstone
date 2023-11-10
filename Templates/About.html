@@ -1,0 +1,23 @@
+<!--
+"""
+# Alexander Phillips
+# Building Secure Python Applications
+# SDEV 300 6382 Building Secure Python
+# lab 8
+# March 7, 2023
+#   Description: about for the website
+"""
+-->
+{% extends "layout.html" %}
+{% block content %}
+   <div class="about">
+     <h1>Notes</h1>
+     <p>This is all information about my ret paladin WoTLK stuff, links and such.</p>
+     <!--links-->
+       <a href=https://www.wowhead.com/wotlk/guide/classes/paladin/retribution/dps-bis-gear-pve-phase-2>BiS Gear</a>
+       <a href=https://www.wowhead.com/wotlk/item=19902/swift-zulian-tiger>Mount I want</a>
+       <a href=https://www.wowhead.com/wotlk/guide/classes/paladin/retribution/dps-rotation-cooldowns-abilities-pve>DPS Rotation</a>
+        <!--time on the bottom right of the page-->
+       <p_bot>The current time is : {{datetime}}</p_bot>
+   </div>
+ {% endblock %}

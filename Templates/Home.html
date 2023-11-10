@@ -1,0 +1,36 @@
+<!--
+"""
+# Alexander Phillips
+# Building Secure Python Applications
+# SDEV 300 6382 Building Secure Python
+# lab 8
+# March 7, 2023
+#   Description: Home
+"""
+-->
+{% extends "layout.html" %}
+{% block content %}
+  <div class="home">
+    <h1>Main gear, Phase 2.</h1>
+    <h3>Best in slot</h3>
+       <!--prints the whole item list for phase 2 of WoTLK classic-->
+<ol>
+<table>
+    <div><img src="../static/images/Pally.png" alt="Penguin Wave" style="float:right;"></div>
+{% for key, value in gear.items() %}
+   <tr>
+        <li> {{ key }}</li>
+       <ol>
+       {% for item in gear[key] %}
+        <li> {{ item }} </li>
+       {% endfor %}
+       </ol>
+
+   </tr>
+{% endfor %}
+</table>
+
+</ol>
+
+  </div>
+{% endblock %}

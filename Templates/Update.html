@@ -1,0 +1,32 @@
+<!--
+"""
+# Alexander Phillips
+# Building Secure Python Applications
+# SDEV 300 6382 Building Secure Python
+# lab 8
+# March 7, 2023
+#   Description: Update form page
+"""
+-->
+{% extends "layout.html" %}
+{% block content %}
+<html>
+  <head>
+    <title>Update page </title>
+
+  </head>
+  <body>
+  <form action="{{ url_for('update_info') }}" method="post">
+    <h1>Hello, {{user}} please change your password below.</h1>
+    <div>
+    <label_1 for="password">New Password</label_1>
+    <input type="item" id="Item" name="item" placeholder="Password">
+  </div>
+  <div>
+    <input type="submit" value="Click Me" >
+  </div>
+    </form>
+    <div><h1 >{{info}}</h1></div>
+  </body>
+</html>
+{% endblock %}

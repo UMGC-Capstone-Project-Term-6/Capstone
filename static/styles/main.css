@@ -1,0 +1,98 @@
+/*
+"""
+# Alexander Phillips
+# Building Secure Python Applications
+# SDEV 300 6382 Building Secure Python
+# lab 8
+# March 7, 2023
+#   Description: This is just a python flask application, building a website
+                 nothing to fancy just lots of editing with the incoming projects
+"""
+*/
+body {
+  margin: 0;
+  padding: 0;
+  font-family: system-ui;
+}
+header {
+  background-color: #51087E;
+  height: 75px;
+  width: 100%;
+  margin-bottom: 100px;
+  text-align: center;
+}
+
+
+/*
+ * Centering the body content
+ */
+.container {
+  width: 1300px;
+  margin: 0 auto;
+}
+
+h1 {
+
+
+}
+h2 {
+  font-size: 3em;
+  margin-top: 40px;
+  text-align: center;
+  letter-spacing: -2px;
+
+}
+h3 {
+  font-size: 1.7em;
+  font-weight: 100;
+  margin-top: 30px;
+
+}
+li {
+
+}
+
+li_data {
+  display: inline;
+  color: #444;
+  text-decoration: none;
+}
+p{
+    text-align: justify;
+}
+p_bot{
+       position: fixed;
+       text-align: center;
+       bottom: 0px;
+       width: 100%;
+}
+ul{
+  list-style-type: decimal ;
+
+}
+ol{
+  list-style-type: decimal ;
+}
+label_1{
+
+        display: block;
+        float: left;
+        width: 150px;
+        text-align: right;
+        font-weight: bold;
+        margin-right: 10px;
+
+}
+input.submit {
+        margin-left: 160px;
+}
+div{
+        margin-bottom: 5px;
+}
+ th, td {
+  border-style: inset;
+}
+
+
+
+

@@ -1,0 +1,43 @@
+<!--
+"""
+# Alexander Phillips
+# Building Secure Python Applications
+# SDEV 300 6382 Building Secure Python
+# lab 8
+# March 7, 2023
+#   Description: This is just a python flask application, building a website
+                 nothing to fancy just lots of editing with the incoming projects
+"""
+-->
+<!DOCTYPE html>
+<html>
+  <head>
+    <!--Get the style sheet from the styles folder-->
+    <title>Flask app</title>
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/main.css') }}">
+  </head>
+  <body>
+   <!--Sets up the header for a more interesting look-->
+    <header>
+      <div>
+        <h2>Alex Phillips Ret Info</h2>
+         <!--menu-->
+        <strong><nav>
+            <li_data>Menu:</li_data>
+            <li_data><a href="{{ url_for('home') }}">Home</a></li_data>
+            <li_data><a href="{{ url_for('dps_rotation') }}">dps_rotation</a></li_data>
+            <li_data><a href="{{ url_for('mounts') }}">Mounts</a></li_data>
+            <li_data><a href="{{ url_for('login') }}">Login</a></li_data>
+            <li_data><a href="{{ url_for('registration') }}">Registration</a></li_data>
+            <li_data><a href="{{ url_for('update_info') }}">Update</a></li_data>
+            <li_data><a href="{{ url_for('about') }}">About</a></li_data>
+        </nav></strong>
+      </div>
+    </header>
+    <!--content-->
+    <div class="container">
+      {% block content %}
+      {% endblock %}
+    </div>
+  </body>
+</html>

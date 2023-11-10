@@ -1,0 +1,53 @@
+<!--
+"""
+# Alexander Phillips
+# Building Secure Python Applications
+# SDEV 300 6382 Building Secure Python
+# lab 8
+# March 7, 2023
+#   Description: register for the user using a form
+"""
+-->
+{% extends "layout.html" %}
+{% block content %}
+<html>
+  <head>
+    <title>Registration Form</title>
+
+  </head>
+  <body>
+    <h1>Registration Form</h1>
+    <form action="{{ url_for('registration') }}" method="post"
+      enctype="multipart/form-data">
+        <div><img src="../static/images/Notebook.png" alt="Penguin Wave" style="float:right;"></div>
+        <div class="required">
+          <label class="field" for="username">Username</label>
+          <input type="username" id="Username" name="username" placeholder="Username">
+        </div>
+        <div class="required">
+          <label class="field" for="item">Password</label>
+           <input type="item" id="Item" name="item" placeholder="Password">
+        </div>
+        <div class="required">
+          <label class="field">The class you play.</label>
+          <select type="wowclass" id="Wowclass" name="wowclass">
+            <option value="Paladin">Paladin</option>
+            <option value="Warrior">Warrior</option>
+            <option value="death_knight">Death_Knight</option>
+            <option value="hunter">Hunter</option>
+            <option value="rogue">Rogue</option>
+            <option value="mage">Mage</option>
+            <option value="warlock">Warlock</option>
+            <option value="shaman">Shaman</option>
+            <option value="priest">Priest</option>
+            <option value="druid">Druid</option>
+          </select>
+        </div>
+        <div class="submit">
+          <input type="submit" value="register">
+        </div>
+          <div><h1 >{{info}}</h1></div>
+    </form>
+  </body>
+</html>
+{% endblock %}
