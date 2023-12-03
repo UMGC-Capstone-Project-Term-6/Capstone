@@ -58,6 +58,10 @@ def homepage():
 # Log file path
 LOG_FILE = 'login.log'
 
+# If log file does not exist, create
+if not os.path.exists(LOG_FILE):
+    with open(LOG_FILE, 'w', encoding='uft-8') as f:
+        f.write('Date,IP Address\n')
 
 # If log file does not exist, create
 if not os.path.exists(LOG_FILE):
