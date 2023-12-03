@@ -1,52 +1,61 @@
-{%extends "layout.html" %} {% block content %}
-<div>
-  <form method="POST" action="{{ url_for('login') }}">
-    {{ form.hidden_tag() }}
-    <fieldset class="form-group">
-      <legend>Login</legend>
-      <div>
-        {{ form.email.label(class="form-control-label") }}
-        {% if form.email.errors %}
-          {{ form.email(class="form-control form-control-lg is-invalid")}}
-          <div>
-            {% for error in form.email.errors %}
-            <span>{{ error }}</span>
-            {% endfor %}
-          </div>
-        {% else%}
-          {{ form.email(class="form-control form-control-lg") }}
-        {% endif %}
-      </div>
-      <div>
-        {{ form.password.label(class="form-control-label") }}
-        {% if form.password.errors %}
-          {{ form.password(class="form-control form-control-lg is-invalid")}}
-          <div class="invalid-feedback">
-            {% for error in form.password.errors %}
-              <span>{{ error }}</span>
-            {% endfor %}
-          </div>
-        {% else%}
-          {{ form.password(class="form-control form-control-lg") }}
-        {% endif %}
-      </div>
-      <div>
-        {{ form.remember(class="form-check-input") }} {{
-        form.remember.label(class="form-check-label")}}
-      </div>
-    </fieldset>
-    <div>
-      {{ form.submit(class="btn btn-outline-info") }}
-    </div>
-    <small class="text-muted ml-2">
-      <a href="{{ url_for('password_update') }}">Forgot Password?</a>
-    </small>
-  </form>
-</div>
-<div>
-  <small class="text-muted">
-    Need an Account?
-    <a class="ml-2" , href="{{ url_for('register') }}">Sign Up Now</a>
-  </small>
-</div>
-{% endblock %}
+<!DOCTYPE html>
+<!--Root element of an HTML document-->
+<html>
+<!--Container for head elements-->
+  <head>
+    <!--UTF-5 charter-->
+    <meta charset="UTF-8">
+      <!--Title of HTML document-->
+    <title>Login</title>
+     <!--Relationship, text and URL to link a stylesheet-->
+          <link rel="stylesheet"
+                type="text/css"
+                href="{{ url_for('static', filename='login.css') }}">
+
+           <!--close head-->
+          </head>
+          <!--Defines section of web page-->
+            <body>
+              <!--Level 1 heading-->
+              <h1>Login</h1>
+                <!--container for login-related content-->
+                <div class="login">
+                  <!--Level 1 heading-->
+                  <h1>Login</h1>
+                   <!--container for links-->
+                    <div class="links">
+                    <a href="{{ url_for('login') }}" class="active">Login</a>
+                    <a href="{{ url_for('register') }}">Register</a>
+                    </div>
+                    <!--Form for user input-->
+                  <form action="{{ url_for('login') }}" method="post">
+                    <label for="username">
+                      <i class="fas fa-user"></i>
+                    </label>
+                    <!--Text field for username input-->
+                    <input type="text" name="username" placeholder="Username" id="username" required>
+                    <label for="password">
+                       <i class="fas fa-user"></i>
+                    </label>
+                     <!--Text field for password input-->
+                    <input type="password" name="password" placeholder="Password" id="password" required>
+                    <!--Check for messages-->
+                  {% with messages = get_flashed_messages(with_categories=true) %}
+                  {% if messages %}
+                  {% for category, message in message %}
+                    <!-- Invalid message-->
+                    <div class="msg Invalid">{{message}}</div>
+                    <!--End loop and statements-->
+                  {% endfor %}
+                  {% endif %}
+                  {% endwith %}
+                    <!--Submit inputs-->
+                  <input type="submit" value="Login">
+                    <!--Close form-->
+                    </form>
+                  <!--Close div-->
+              </div>
+       <!--End of content-->
+   </body>
+ <!--Close html-->
+</html>

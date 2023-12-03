@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<!--Root element of an HTML document-->
+<html>
+<!--Container for head elements-->
+  <head>
+      <!--Title of HTML document-->
+        <title>contact</title>
+      <!--Relationship, text and URL to link a stylesheet-->
+        <link
+           rel="stylesheet"
+           type="text/css"
+           href="{{ url_for('static', filename='style.css') }}">
+      <!--centers the text for h1-->
+        <style>
+            h1 {
+            text-align: center;
+           }
+               h2 {
+            text-align: center;
+           }
+           .container-info p {
+                margin-top: 10px;
+                }
+        </style>
+      <!--close head-->
+    </head>
+    <!--Identifies web page content-->
+    <body>
+    <!--Organize web page content-->
+        <div class="container"></div>
+<!--Level 1 heading-->
+      <h1>Contact Us</h1>
+          <!--block-level element using container-info-->
+    <!--centers the text for h2-->
+        <!--Level 2 heading-->
+        <h2>Urgent Assistance:</h2>
+        <div class="container-info">
+            <!--Paragraphs for contacting website-->
+        <p>For urgent assistance, please email us at CyberSec@mywebsite.com</p>
+        <p>Alternatively, you may call us at 555-123-4567</p>
+            <!--Close div-->
+          </div>
+        <!--Navigation for CSS-->
+         <nav class="center">
+             <!--Unordered list-->
+            <ul>
+                <!--Navigation menu for different websites-->
+              <li><a href="{{ url_for('homepage') }}">Cyber Security Awareness</a></li>
+              <li><a href="{{ url_for('questions') }}">Ask a Question</a></li>
+              <li><a href="{{ url_for('asked') }}">Questions Asked</a></li>
+                <!--Close unordered list-->
+            </ul>
+             <!--Close nav-->
+        </nav>
+    <!--Display current date and time-->
+      <p>Current date and time: {{ current_time }}</p>
+    <!--End of content-->
+  </body>
+<!--Close html-->
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<!--Root element of an HTML document-->
+<html lang="en">
+<!--Container for head elements-->
+  <head>
+      <!--Title of HTML document-->
+        <title>Known Exploited Vulnerabilities</title>
+      <!--Relationship, text and URL to link a stylesheet-->
+        <link
+           rel="stylesheet"
+           type="text/css"
+           href="{{ url_for('static', filename='style.css') }}"/>
+     <!--Close head-->
+  </head>
+<!--Organize Web page content-->
+<body>
+  <!--Defines section of web page-->
+    <nav>
+      <!--Unordered list-->
+      <ul>
+         <!--Navigation menu for different websites-->
+              <li><a href="{{ url_for('homepage') }}">Cyber Security Awareness</a></li>
+              <li><a href="{{ url_for('questions') }}">Ask a Question</a></li>
+              <li><a href="{{ url_for('asked') }}">Questions Asked</a></li>
+              <li><a href="{{ url_for('images') }}">Images</a></li>
+              <li><a href="{{ url_for('register') }}">Register</a></li>
+              <li style="float: right"><a href="{{ url_for('logout') }}">Logout</a></li>
+              <li style="float: right"><a href="{{ url_for('contact') }}">Contact</a></li>
+                <!--Close unordered list-->
+            </ul>
+             <!--Close nav-->
+        </nav>
+    <!--Level 1 heading-->
+        <h1>Known Exploited Vulnerabilities</h1>
+            <!--Create table-->
+                <table>
+                <!--Table rows-->
+                  <tr>
+                    <td>CVE-2022-28810</td>
+                    <td>CVE-2022-33891</td>
+                    <td>CVE-2022-35914</td>
+                  </tr>
+                  <tr>
+                    <td>CVE-2022-36537</td>
+                    <td>CVE-2022-47986</td>
+                    <td>CVE-2022-41223</td>
+                  </tr>
+                    <tr>
+                    <td>CVE-2022-40765</td>
+                    <td>CVE-2022-46169</td>
+                    <td>CVE-2023-21715</td>
+                  </tr>
+                   <tr>
+                    <td>CVE-2023-23376</td>
+                    <td>CVE-2023-23529-</td>
+                    <td>CVE-2023-21823</td>
+             <!--Close table rows-->
+                  </tr>
+             <!--Close table-->
+             </table>
+              <!--Define item  hyperlink-->
+              <a href="https://www.cisa.gov/known-exploited-vulnerabilities-catalog">https://www.cisa.gov/known-exploited-vulnerabilities-catalog</a>
+    <!--End of Content-->
+       </body>
+   <!--Close html-->
+</html>

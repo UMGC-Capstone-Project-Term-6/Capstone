@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<!--Root element of an HTML document-->
+<html>
+<!--Container for head elements-->
+  <head>
+     <!--Title of HTML document-->
+    <title>Questions Asked</title>
+     <!--Relationship, text and URL to link a stylesheet-->
+    <link
+      rel="stylesheet"
+           type="text/css"
+           href="{{ url_for('static', filename='style.css') }}"/>
+    <!--centers the text for h1-->
+      <style>
+            h1 {
+            text-align: center;
+           }
+        </style>
+    <!--close head-->
+    </head>
+<!--Identifies web page content-->
+    <body>
+    <!--Level 1 heading-->
+      <h1>Questions Asked</h1>
+    <!--Flask template of jinja-->
+      {% for question in questions %}
+    <!--Create card container-->
+      <div class="card">
+       <!--Defines crd layout content-->
+        <div class="card-body">
+          <!--Heading for a card element-->
+          <h2 class="card-title">{{ question[0] }}</h2>
+          <h3 class="card-subtitle mb-2 text-muted">{{ question[1] }}</h3>
+          <!--template for rendering question-->
+          <p class="card-text">{{ question[2] }}</p>
+          <!--Close div-->
+        </div>
+        <!--Close div-->
+      </div>
+    <!--End of for loop-->
+     {% endfor %}
+    <!--Defines section of web page-->
+    <nav>
+      <!--Unordered list-->
+            <ul>
+               <!--Navigation menu for different websites-->
+              <li><a href="{{ url_for('homepage') }}">Cyber Security Awareness</a></li>
+              <li><a href="{{ url_for('questions') }}">Ask a Question</a></li>
+              <li><a href="{{ url_for('contact') }}">Contact Us</a></li>
+               <!--Close unordered list-->
+            </ul>
+      <!--Close nav-->
+        </nav>
+    <!--Display current date and time-->
+    <p>Current date and time: {{ current_time }}</p>
+    <!--End of content-->
+  </body>
+<!--Close html-->
+</html>
