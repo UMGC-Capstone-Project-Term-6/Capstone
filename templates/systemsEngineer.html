@@ -1,0 +1,16 @@
+{% extends "layout.html" %}
+{% block content %}
+<html>
+<head>
+    <a class="btn btn-info" href="/" role="button">Back to Search</a>
+    <title>Distribution</title>
+</head>
+<body>
+    <h1>Distribution of Systems Engineering jobs</h1>
+    <img src="{{ url_for('static', filename='/img/total_sys_jobs.png') }}" alt="Distribution of Systems Engineering
+     jobs">
+
+</body>
+</html>
+
+{% endblock %}

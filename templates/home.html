@@ -1,0 +1,47 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<style>
+    /* Add CSS styles for spacing/margins */
+    form {
+        margin: 20px;
+        padding: 20px;
+        border: 1px solid #ccc;
+    }
+
+    label {
+        display: block;
+        margin-bottom: 10px;
+    }
+
+    select, input[type="submit"] {
+        margin-bottom: 10px;
+    }
+</style>
+
+
+<form id="navigationForm" action="" method="post">
+  <label for="areaDropdown">Select a location:</label>
+  <select id="areaDropdown" name="area">
+    <option value="NoSelection">No Selection</option>
+    <option value="Washington">Washington</option>
+    <option value="Virginia">Virginia</option>
+    <option value="Maryland">Maryland</option>
+    <option value="Utah">Utah</option>
+    <option value="California">California</option>
+    <option value="WashingtonDC">Washington DC</option>
+  </select>
+
+  <label for="jobDropdown">Select a Job:</label>
+  <select id="jobDropdown" name="job">
+    <option value="NoSelection">No Selection</option>
+    <option value="SoftwareEngineer">Software Engineer</option>
+    <option value="DataAnalyst">Data Analyst</option>
+    <option value="CyberSecurityEngineer">Cyber Security Engineer</option>
+    <option value="GameDeveloper">Game Developer</option>
+    <option value="SystemsEngineer">Systems Engineer</option>
+  </select>
+
+  <input type="submit" value="Find Information">
+</form>
+{% endblock %}
