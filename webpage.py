@@ -27,9 +27,6 @@ job_routes = {"SoftwareEngineer": "softwareEngineer.html", "DataAnalyst": "dataA
 jobs_list = {"SoftwareEngineer": "_swe.html", "CyberSecurityEngineer": "_cyber.html", "DataAnalyst": "_data.html",
              "GameDeveloper": "_game.html", "SystemsEngineer": "_sys.html"}
 
-# utah_job_routes = {"Utah": jobs_list, "California": jobs_list, "WashingtonDC": jobs_list, "Maryland": jobs_list,
-#                    "Virginia": jobs_list, "Washington": jobs_list}
-
 
 @app.route('/', methods=['GET', 'POST'])
 @app.route("/home")
