@@ -1,8 +1,4 @@
 """
-@name Kevin Pineda
-@class SDEV 300 6980
-@date 08/03/2023
-Lab 8
 
 Python Web Page Code
 
@@ -41,14 +37,10 @@ class RegistrationForm(FlaskForm):
         Button to submit the registration form.
     """
     username = StringField('Username', validators=[DataRequired(), Length(min=2, max=20)])
-
     email = StringField('Email', validators=[DataRequired(), Email()])
-
     password = PasswordField('Password', validators=[DataRequired()])
-
     confirm_password = PasswordField('Confirm Password',
                                      validators=[DataRequired(), EqualTo('password')])
-
     submit = SubmitField('Register')
 
     @staticmethod
