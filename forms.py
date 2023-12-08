@@ -62,6 +62,8 @@ class RegistrationForm(FlaskForm):
         ------
         ValidationError
             If the password does not meet the specified criteria.
+            :param password:
+            :param self:
         """
         rules = [
             len(password.data) >= 12,
@@ -161,6 +163,8 @@ class PasswordUpdateForm(FlaskForm):
         ----------
         new_password : PasswordField
             The new password entered by the user.
+            :param new_password:
+            :param self:
         """
         rules = [
             len(new_password.data) >= 12,

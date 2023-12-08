@@ -3,8 +3,8 @@ Python Web Page Code
 
 Creates a unique web page using the flask framework1
 """
+import csv, html
 from datetime import datetime
-
 from flask import Flask, render_template, url_for, flash, redirect, request
 from flask_login import LoginManager, UserMixin, login_user, login_required, logout_user
 from forms import RegistrationForm, LoginForm, PasswordUpdateForm
@@ -17,7 +17,7 @@ app.config['SECRET_KEY'] = 'iamamonkey123456789'
 now = datetime.now()
 
 # Setting up data
-location_routes = {"California": "california_jobs.html", "WashingtonDC": "dc_jobs.html",
+location_routes = {"California": "california_jobs.html", "WashingtonDC": "washingtondc_jobs.html",
                    "Maryland": "maryland_jobs.html",
                    "Utah": "utah_jobs.html", "Virginia": "virginia_jobs.html", "Washington": "washington_jobs.html"}
 
@@ -38,35 +38,83 @@ def home():
 
         location_selection = location_routes.get(location)
         job_selection = job_routes.get(job)
-
+        redirect_url = ""
         if location == "NoSelection" and job != "NoSelection":
-            redirect_url = url_for('redirect_to_only_job', job=job_selection)
+            redirect_url = url_for('redirect_to_only_job', job_area=job_selection)
             return redirect(redirect_url)
         elif job == "NoSelection" and location != "NoSelection":
-            redirect_url = url_for('redirect_to_only_location', location=location_selection)
+            redirect_url = url_for('redirect_to_only_location', location_area=location_selection)
             return redirect(redirect_url)
-        elif location_selection and job_selection:
+        elif location_selection != "NoSelection" and job_selection != "NoSelection":
             curr_job = job
             job_selection = location.lower() + jobs_list.get(curr_job, "")
-            redirect_url = url_for('redirect_to_page', job=job_selection)
+            redirect_url = url_for('redirect_to_full_page', job=job_selection)
             return redirect(redirect_url)
 
     return render_template('home.html')
 
+def create_html_table(file):
+    file = file.replace("washingtondc", "maryland")
 
-@app.route('/<job>')
-def redirect_to_page(job):
-    return render_template(job)
+    csv_file_path = "jobs_data/" + file[:-5] + ".csv"
+    csv_data = []
+    with open(csv_file_path, 'r', newline='', encoding='utf-8') as csvfile:
+        csvreader = csv.reader(csvfile)
+        header = next(csvreader)
+        for row in csvreader:
+            csv_data.append(row)
+
+    html_table = '<table border="1" style="table-layout: fixed; width: 100%">\n'
+
+    html_table += '<tr>'
+    for header_cell in header:
+        html_table += f'<th style="word-wrap: break-word;">{html.escape(header_cell)}</th>'
+    html_table += '</tr>\n'
+
+    for row in csv_data:
+        html_table += '<tr>'
+        for cell in row:
+
+            if cell.startswith("http://") or cell.startswith("https://"):
+                html_table += f'<td style="word-wrap: break-word;"><a href="{cell}" target="_blank">{html.escape(cell)}</a></td>'
+            else:
+                html_table += f'<td style="word-wrap: break-word;">{html.escape(cell)}</td>'
+        html_table += '</tr>\n'
+
+    html_table += '</table>'
+    return html_table
+
+def find_html_page(job):
+
+    state = ""
+    state_flag = False
+    job_type = ""
+    job_flag = False
+    for character in job:
+        if(character != "_" and state_flag == False):
+            state += character
+        elif (character == "_" or state_flag == True):
+            state_flag = True
+            job_type += character
+
+    html_page = state + job_type
+    return html_page
+
+@app.route('/job/<job>')
+def redirect_to_full_page(job):
+    html_page = find_html_page(job)
+    table = create_html_table(html_page)
+    return render_template(html_page, table=table)
 
 
-@app.route('/<location>')
-def redirect_to_only_location(location):
-    return render_template(location)
+@app.route('/location/<location_area>')
+def redirect_to_only_location(location_area):
+    return render_template(location_area)
 
 
-@app.route('/<job>')
-def redirect_to_only_job(job):
-    return render_template(job)
+@app.route('/job_area/<job_area>')
+def redirect_to_only_job(job_area):
+    return render_template(job_area)
 
 
 @app.route("/register", methods=['GET', 'POST'])

@@ -107,6 +107,6 @@ def get_total_each_job_in_city(filename):
 
 
 if __name__ == '__main__':
-     get_total_jobs_report_02('Values_02.csv')
-    # get_difference_in_jobs_report_01('Values_01.csv')
-    # get_total_each_job_in_city('Values_01.csv')
+    get_total_jobs_report_02('Values_02.csv')
+# get_difference_in_jobs_report_01('Values_01.csv')
+# get_total_each_job_in_city('Values_01.csv')
