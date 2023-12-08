@@ -54,6 +54,7 @@ def home():
     return render_template('home.html')
 
 def create_html_table(file):
+    # Manual adjustment whenever washington dc is found since no csv exists.
     file = file.replace("washingtondc", "maryland")
 
     csv_file_path = "jobs_data/" + file[:-5] + ".csv"
