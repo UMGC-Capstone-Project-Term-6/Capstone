@@ -45,6 +45,8 @@ def home():
         elif job == "NoSelection" and location != "NoSelection":
             redirect_url = url_for('redirect_to_only_location', location_area=location_selection)
             return redirect(redirect_url)
+        elif job == "NoSelection" and location == "NoSelection":
+            return render_template('home.html')
         elif location_selection != "NoSelection" and job_selection != "NoSelection":
             curr_job = job
             job_selection = location.lower() + jobs_list.get(curr_job, "")
@@ -85,7 +87,6 @@ def create_html_table(file):
     return html_table
 
 def find_html_page(job):
-
     state = ""
     state_flag = False
     job_type = ""
