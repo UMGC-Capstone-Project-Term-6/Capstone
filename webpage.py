@@ -75,7 +75,6 @@ def create_html_table(file):
     for row in csv_data:
         html_table += '<tr>'
         for cell in row:
-
             if cell.startswith("http://") or cell.startswith("https://"):
                 html_table += f'<td style="word-wrap: break-word;"><a href="{cell}" target="_blank">{html.escape(cell)}</a></td>'
             else:
