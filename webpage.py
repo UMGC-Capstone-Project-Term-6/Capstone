@@ -1,8 +1,16 @@
-"""
-Python Web Page Code
-
-Creates a unique web page using the flask framework1
-"""
+#
+#       Group: Group 3
+#          Team Member -
+#               Project Manager: Malachi McCloud
+#               Lead Developer: Kevin Pineda
+#               Associate Developer: Alexander Phillips
+#               Quality Assurance: Jonathan Quinn
+#       Class:CMSC 495: Capstone in Computer Science
+#       Due Date:December 12, 2023
+#       Teacher: Professor Davis
+#       Description: Main driver for setting up the website for the project
+#
+#
 import csv, html
 from datetime import datetime
 from flask import Flask, render_template, url_for, flash, redirect, request
@@ -16,7 +24,7 @@ app.config['SECRET_KEY'] = 'iamamonkey123456789'
 
 now = datetime.now()
 
-# Setting up data
+# linked lists showing their name and file connected to them.
 location_routes = {"California": "california_jobs.html", "WashingtonDC": "washingtondc_jobs.html",
                    "Maryland": "maryland_jobs.html",
                    "Utah": "utah_jobs.html", "Virginia": "virginia_jobs.html", "Washington": "washington_jobs.html"}
@@ -32,6 +40,18 @@ jobs_list = {"SoftwareEngineer": "_swe.html", "CyberSecurityEngineer": "_cyber.h
 @app.route("/home")
 @login_required
 def home():
+    """
+    creates the home page for the website
+
+    Parameters
+    ----------
+    N/A
+
+    Returns
+    -------
+    N/A
+
+    """
     if request.method == 'POST':
         location = request.form['area']
         job = request.form['job']
@@ -56,6 +76,18 @@ def home():
     return render_template('home.html')
 
 def create_html_table(file):
+    """
+        creates the cvs file for the selected html page for the website
+
+        Parameters
+        ----------
+        N/A
+
+        Returns
+        -------
+        N/A
+
+        """
     # Manual adjustment whenever washington dc is found since no csv exists.
     file = file.replace("washingtondc", "maryland")
 
@@ -87,6 +119,18 @@ def create_html_table(file):
     return html_table
 
 def find_html_page(job):
+    """
+        creates the home page for the website
+
+        Parameters
+        ----------
+        N/A
+
+        Returns
+        -------
+        N/A
+
+        """
     state = ""
     state_flag = False
     job_type = ""

@@ -1,3 +1,14 @@
+<!--        Group: Group 3
+          Team Member -
+               Project Manager: Malachi McCloud
+               Lead Developer: Kevin Pineda
+               Associate Developer: Alexander Phillips
+               Quality Assurance: Jonathan Quinn
+       Class:CMSC 495: Capstone in Computer Science
+       Due Date:December 12, 2023
+       Teacher: Professor Davis
+       Description: layout html page
+-->
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -24,8 +35,10 @@
   </head>
   <body>
     <header class="site-header">
+
       <nav class="navbar navbar-expand-md navbar-dark bg-steel fixed-top">
         <div class="container">
+          <img src="{{ url_for('static', filename='/img/logo.png') }}" alt="logo">
           <a class="navbar-brand mr-4" href="/">Job Data Helper</a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggle" aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>

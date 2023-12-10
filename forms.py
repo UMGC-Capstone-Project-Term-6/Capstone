@@ -1,9 +1,16 @@
-"""
-
-Python Web Page Code
-
-Sets up the forms to be used in the flask application
-"""
+#
+#       Group: Group 3
+#          Team Member -
+#               Project Manager: Malachi McCloud
+#               Lead Developer: Kevin Pineda
+#               Associate Developer: Alexander Phillips
+#               Quality Assurance: Jonathan Quinn
+#       Class:CMSC 495: Capstone in Computer Science
+#       Due Date:December 12, 2023
+#       Teacher: Professor Davis
+#       Description: class for registration on the website
+#
+#
 
 import re
 

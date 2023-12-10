@@ -1,3 +1,14 @@
+<!--        Group: Group 3
+          Team Member -
+               Project Manager: Malachi McCloud
+               Lead Developer: Kevin Pineda
+               Associate Developer: Alexander Phillips
+               Quality Assurance: Jonathan Quinn
+       Class:CMSC 495: Capstone in Computer Science
+       Due Date:December 12, 2023
+       Teacher: Professor Davis
+       Description: Home html page
+-->
 {% extends "layout.html" %}
 {% block content %}
 
@@ -24,11 +35,17 @@
       margin-bottom: 20px;
     }
 </style>
+<img src="{{ url_for('static', filename='/img/computer.png') }}" alt="computer" style=display:inline-block>
+
+<p >You can do the following:</p>
+<p >-----Select a location only for a job graph in that state</p>
+<p >-----Select a job only for a job graph of that type</p>
+<p >-----Select both a location and job for a table of jobs available.</p>
 
 
-<div class="description-box">
-    <p>!!!ADD THE INSTRUCTIONS FOR A USER HERE!!!</p>
-</div>
+
+
+
 
 <form id="navigationForm" action="" method="post">
   <label for="areaDropdown">Select a location:</label>
@@ -53,5 +70,6 @@
   </select>
 
   <input type="submit" value="Find Information">
+
 </form>
 {% endblock %}
