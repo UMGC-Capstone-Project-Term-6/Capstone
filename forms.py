@@ -157,8 +157,6 @@ class PasswordUpdateForm(FlaskForm):
     confirm_password = PasswordField('Confirm New Password',
                                      validators=[DataRequired(), EqualTo('new_password')])
 
-    password_secret = PasswordField('Add Password Secret', validators=[DataRequired()])
-
     submit = SubmitField('Update Password')
 
     @staticmethod

@@ -13,8 +13,10 @@
 #
 import csv, html
 from datetime import datetime
+
 from flask import Flask, render_template, url_for, flash, redirect, request
 from flask_login import LoginManager, UserMixin, login_user, login_required, logout_user
+
 from forms import RegistrationForm, LoginForm, PasswordUpdateForm
 
 # Starting Flask
@@ -25,15 +27,24 @@ app.config['SECRET_KEY'] = 'iamamonkey123456789'
 now = datetime.now()
 
 # linked lists showing their name and file connected to them.
-location_routes = {"California": "california_jobs.html", "WashingtonDC": "washingtondc_jobs.html",
+location_routes = {"California": "california_jobs.html",
+                   "WashingtonDC": "washingtondc_jobs.html",
                    "Maryland": "maryland_jobs.html",
-                   "Utah": "utah_jobs.html", "Virginia": "virginia_jobs.html", "Washington": "washington_jobs.html"}
+                   "Utah": "utah_jobs.html",
+                   "Virginia": "virginia_jobs.html",
+                   "Washington": "washington_jobs.html"}
 
-job_routes = {"SoftwareEngineer": "softwareEngineer.html", "DataAnalyst": "dataAnalyst.html", "CyberSecurityEngineer":
-    "cyberSecurityEngineer.html", "GameDeveloper": "gameDeveloper.html", "SystemsEngineer": "systemsEngineer.html"}
+job_routes = {"SoftwareEngineer": "softwareEngineer.html",
+              "DataAnalyst": "dataAnalyst.html",
+              "CyberSecurityEngineer": "cyberSecurityEngineer.html",
+              "GameDeveloper": "gameDeveloper.html",
+              "SystemsEngineer": "systemsEngineer.html"}
 
-jobs_list = {"SoftwareEngineer": "_swe.html", "CyberSecurityEngineer": "_cyber.html", "DataAnalyst": "_data.html",
-             "GameDeveloper": "_game.html", "SystemsEngineer": "_sys.html"}
+jobs_list = {"SoftwareEngineer": "_swe.html",
+             "CyberSecurityEngineer": "_cyber.html",
+             "DataAnalyst": "_data.html",
+             "GameDeveloper": "_game.html",
+             "SystemsEngineer": "_sys.html"}
 
 
 @app.route('/', methods=['GET', 'POST'])
@@ -62,7 +73,7 @@ def home():
         if location == "NoSelection" and job != "NoSelection":
             redirect_url = url_for('redirect_to_only_job', job_area=job_selection)
             return redirect(redirect_url)
-        elif job == "NoSelection" and location != "NoSelection":
+        if job == "NoSelection" and location != "NoSelection":
             redirect_url = url_for('redirect_to_only_location', location_area=location_selection)
             return redirect(redirect_url)
         elif job == "NoSelection" and location == "NoSelection":
@@ -147,6 +158,18 @@ def find_html_page(job):
 
 @app.route('/job/<job>')
 def redirect_to_full_page(job):
+    """
+            Redirects the program to the full job html file
+
+            Parameters
+            ----------
+            N/A
+
+            Returns
+            -------
+            N/A
+
+            """
     html_page = find_html_page(job)
     table = create_html_table(html_page)
     return render_template(html_page, table=table)
@@ -154,11 +177,35 @@ def redirect_to_full_page(job):
 
 @app.route('/location/<location_area>')
 def redirect_to_only_location(location_area):
+    """
+            Redirects the program to the location html file
+
+            Parameters
+            ----------
+            N/A
+
+            Returns
+            -------
+            N/A
+
+            """
     return render_template(location_area)
 
 
 @app.route('/job_area/<job_area>')
 def redirect_to_only_job(job_area):
+    """
+        Redirects the program to the job html file
+
+        Parameters
+        ----------
+        N/A
+
+        Returns
+        -------
+        N/A
+
+        """
     return render_template(job_area)
 
 
@@ -312,8 +359,7 @@ def password_update():
 
             # If the inputted email and password exist, then replace the users data
             if form.email.data == email and form.password.data == pwd:
-                users[i] = f"{username},{email},{form.new_password.data}," \
-                           f"{form.password_secret.data}\n"
+                users[i] = f"{username},{email},{form.new_password.data},"
                 updated = True
                 break
 
@@ -321,10 +367,10 @@ def password_update():
         if updated:
             with open("user_data.txt", "w", encoding="utf-8") as file:
                 file.writelines(users)
-                flash('Password and secret have been updated!', 'success')
+                flash('Password has been updated!', 'success')
                 return redirect(url_for('home'))
         else:
-            flash('Update unsuccessful. Please check your old password.', 'danger')
+            flash('Update unsuccessful. The current password you entered is incorrect. Please try again.', 'danger')
 
     return render_template('password_update.html', title='Password Update', form=form)
 
